@@ -26,6 +26,10 @@ class PrecompDataset(data.Dataset):
                 tsvreader = csv.reader(f, delimiter='\t')
                 for line in tsvreader:
                     self.captions.append(line[1].strip())
+        elif "now100k_precomp" in opt.data_name:
+            with open(os.path.join(data_path, "{}_caps_{}.txt".format(data_split, tokenizer))) as f:
+                for line in f:
+                    self.captions.append(line.strip())
         else:
             with open(loc + '%s_caps.txt' % data_split, 'r', encoding='utf-8') as f:
                 for line in f.readlines():
