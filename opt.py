@@ -81,6 +81,7 @@ def parse_opt():
                         help='Attention softmax temperature.')
 
     # ------------------------- our ReCon settings -----------------------#
+    parser.add_argument('--contrastive_loss', default='Triplet', help='Choose in Triplet/InfoNCE.')
     parser.add_argument('--module_name', default='SAF', type=str,
                     help='SGR, SAF, VSEinfty')
     parser.add_argument('--resume', default='',
